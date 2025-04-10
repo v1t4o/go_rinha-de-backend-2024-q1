@@ -8,9 +8,9 @@ import (
 
 // Conectar abre a conexão com o banco de dados
 func Connect() (*sql.DB, error) {
-	configConnect := "golang:golang@/rinha?charset=utf8&parseTime=True&loc=Local"
+	configConnect := "user=golang password=golang dbname=rinha sslmode=disable"
 
-	db, erro := sql.Open("pq", configConnect)
+	db, erro := sql.Open("postgres", configConnect)
 	if erro != nil {
 		return nil, erro
 	}
